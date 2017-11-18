@@ -1,10 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('') {
       steps {
-        echo 'Hello world'
-        sh 'echo "Hello world"'
+        git(url: 'https://github.com/raimondasv/blue-ocean-rails-demo', branch: 'master', changelog: true, poll: true)
       }
     }
   }
