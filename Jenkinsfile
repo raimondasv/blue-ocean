@@ -1,10 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('build') {
       steps {
-        echo 'Hello world'
-        sh 'echo "Hello world"'
+        git(url: 'https://github.com/raimondasv/blue-ocean-rails-demo', branch: 'master', changelog: true, poll: true)
+        sh '''rbenv exec gem install bundler
+rbenv exec rspec spec/'''
       }
     }
   }
